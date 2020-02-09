@@ -1,0 +1,98 @@
+<!doctype html>
+
+<html lang="en"><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>
+IOT Main Page
+</title>
+
+<!--  jquery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../_nav/js/jquery.js"><\/script>')</script>
+
+<!--  LED Trigger -->
+<script>
+    function LED (url) {
+        fetch(url);
+        fetchLogs();
+    }
+</script>
+
+<!-- Logs Script -->
+<script>
+    const ENDPOINT = '/getLogs'
+
+    async function fetchLogs() {
+        const response = await fetch(ENDPOINT)
+        const packet = await response.text()
+        var log_items = packet.split('\n');
+
+    function updateRows(logs) {
+
+        html = "<table>";
+
+            // Loop through array and add table cells
+            for (var i=0; i<log_items.length; i++) {
+                console.log(log_items[i])
+                if (log_items[i].length > 0){
+                    html += "<tr><td>" + log_items[i].split(',')[0] + "</td><td>" + log_items[i].split(',')[1] + "</td></tr>" ;
+                }
+                var next = i+1;
+            }
+            html += "</table>";
+
+        $('#LogsTable tbody').html(html);
+        }
+
+    updateRows(log_items)
+
+    }
+
+    fetchLogs()
+
+</script>
+
+
+<!-- demo scripts -->
+<link rel="stylesheet" href="main.css">
+
+<body>
+
+<div id="app-cover">
+    <div class="toggle-button-cover">
+        <div class="button-cover">
+            <div class="button r" id="button">
+            <input type="checkbox" class="checkbox" onchange="LED('/LED')">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="centered">
+        <h1 align="center">Logs</h1>
+        <table id="LogsTable" class="content">
+        <thead class="content">
+            <tr>
+            <th>Event</th>
+            <th>Time</th>
+            </tr>
+        </thead>
+        <tbody class="content">
+            <tr>
+            <td colspan="2">
+                <div class="content">
+                <div >Loading</div>
+                </div>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</body>
+
+</body>
+</html>
