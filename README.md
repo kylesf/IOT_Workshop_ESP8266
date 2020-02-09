@@ -57,7 +57,7 @@ Install PlatformIO Plugin for VSCode
 
 [VSCode + PlatformIO Quickstart](https://docs.platformio.org/en/latest/ide/vscode.html#quick-start)
 
-[PlatformIO espressif8266](https://docs.platformio.org/en/latest/platforms/espressif8266)
+[PlatformIO espressif8266](https://docs.platformio.org/en/latest/platforms/espressif8266.html#platform-espressif8266)
 
 [PlatformIO espressif8266 File upload ](https://docs.platformio.org/en/latest/platforms/espressif8266.html#uploading-files-to-file-system-spiffs)
 
