@@ -72,7 +72,7 @@ Recommeded VSCode Plugins
 # Further Links
 
 
-[Educational Inspiration and Core Source for ESP8266](https://tttapa.github.io/ESP8266/)
+[Educational Inspiration and Core Source for ESP8266](https://tttapa.github.io/ESP8266/Chap01%20-%20ESP8266.html)
 
 
 ### Web Server / Authentication
